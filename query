@@ -1,0 +1,61 @@
+// shopify functions
+query {
+  shopifyFunctions(first: 10) {
+    nodes {
+      id
+      app {
+        title
+      }
+      apiType
+      apiVersion
+      title
+    }
+  }
+}
+
+// product list
+{
+  products(first: 10) {  # Adjust 'first' as needed based on how many products you want per page
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
+    }
+    edges {
+      cursor
+      node {
+        id
+        title
+        handle
+        descriptionHtml
+        createdAt
+        images(first: 1) {
+          edges {
+            node {
+              originalSrc
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+// order list 
+{
+  orders(first: 10, sortKey: CREATED_AT, reverse: true) {
+    edges {
+      node {
+        id
+        name # This is the order number
+        totalPriceSet {
+          presentmentMoney {
+            amount
+            currencyCode
+          }
+        }
+        createdAt
+      }
+    }
+  }
+}

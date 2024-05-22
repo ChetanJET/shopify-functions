@@ -1,0 +1,15 @@
+// to setup app
+npm init @shopify/app@latest
+
+// generate extension
+npm run shopify app generate extension
+
+// after write query
+npm run typegen
+
+// after update scopes
+npm run shopify app config push
+npm run deploy
+
+// run app
+npm run dev

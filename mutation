@@ -1,0 +1,34 @@
+// code discount
+
+mutation CreateDiscount {
+  discountCodeAppCreate(
+    codeAppDiscount: {code: "MYDISCOUNT", title: "New Tag Discount", functionId: "b8b58824-e92d-4f2f-a644-2b37601de477", startsAt: "2024-04-01T00:00:00Z"}
+  ) {
+    codeAppDiscount {
+      discountId
+    }
+    userErrors {
+      field
+      message
+    }
+  }
+}
+
+
+// automatic discount
+
+mutation {
+    discountAutomaticAppCreate(automaticAppDiscount: {
+      title: "Volume discount",
+      functionId: "YOUR_FUNCTION_ID_HERE",
+      startsAt: "2022-06-22T00:00:00"
+    }) {
+       automaticAppDiscount {
+        discountId
+       }
+       userErrors {
+        field
+        message
+       }
+    }
+  }
